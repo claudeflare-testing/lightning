@@ -1,0 +1,11 @@
+# Header di sicurezza applicati da Cloudflare Pages a tutto il sito statico.
+# La CSP e' tarata sul frontend mappa: tile CARTO (img), stili inline di Leaflet.
+# NB: connect-src deve includere l'origin del TUO backend (API REST + hub Mercure).
+#     Sostituisci https://api.tuodominio.it con il dominio reale prima del deploy.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.basemaps.cartocdn.com; connect-src 'self' https://api.tuodominio.it; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
