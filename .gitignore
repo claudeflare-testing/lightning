@@ -1,0 +1,27 @@
+# --- Segreti: MAI committare ---
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# --- Dipendenze ---
+/backend/vendor/
+node_modules/
+/frontend/node_modules/
+
+# --- Build / output ---
+/frontend/out/
+/frontend/dist/
+/backend/var/
+/backend/public/bundles/
+
+# --- Artefatti di verifica (screenshot locali) ---
+/screenshots/
+*.log
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,16 @@
+[Unit]
+Description=Blitzortung worker (WebSocket -> Redis/Mercure)
+After=network-online.target redis-server.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/lightning/backend
+ExecStart=/usr/bin/php bin/console app:blitzortung:worker
+Restart=always
+RestartSec=3
+# Il command ha gia' il suo backoff, questo e' la rete di sicurezza.
+
+[Install]
+WantedBy=multi-user.target

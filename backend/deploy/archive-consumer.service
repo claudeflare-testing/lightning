@@ -1,0 +1,15 @@
+[Unit]
+Description=Archive consumer (Redis queue -> PostgreSQL)
+After=network-online.target redis-server.service postgresql.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/lightning/backend
+ExecStart=/usr/bin/php bin/console app:archive:consume
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
