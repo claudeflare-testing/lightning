@@ -119,6 +119,14 @@ body {
   background: var(--surface-2);
 }
 
+/*
+ * Controlli zoom di Leaflet: di default stanno in alto a sinistra, dove c'e' il
+ * toggle tema. Li spostiamo sotto il toggle per non sovrapporli.
+ */
+.leaflet-top.leaflet-left {
+  margin-top: 64px;
+}
+
 /* Attribuzione dati (obbligatoria) sempre leggibile in entrambi i temi. */
 .attribution {
   position: absolute;
@@ -158,5 +166,8 @@ body {
   }
   .attribution {
     font-size: 14px;
+  }
+  .leaflet-top.leaflet-left {
+    margin-top: 92px;
   }
 }
